@@ -169,3 +169,70 @@ canvas {
     .up { top: 6px; }
     .down { bottom: 6px; }
 }
+
+/* --- DESKTOP: Grüne Buttons ausblenden, Standard-Pfeile anzeigen --- */
+@media (min-width: 1025px) {
+    .btn {
+        display: none !important;
+    }
+
+    /* Standard-Browser-Pfeile wieder aktivieren */
+    input[type=number] {
+        -moz-appearance: auto;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: auto;
+        margin: 0;
+    }
+}
+
+/* --- MOBIL: Standard-Pfeile ausblenden, grüne Buttons aktivieren --- */
+@media (max-width: 1024px) {
+
+    /* Standard-Pfeile ausblenden */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    /* Buttons sichtbar */
+    .btn {
+        display: block;
+        position: absolute;
+        right: 6px;
+        background: var(--green);
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        touch-action: manipulation;
+    }
+
+    /* ▼ bleibt wie bisher */
+    .down {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+        line-height: 26px;
+        bottom: 6px;
+    }
+
+    /* ▲ wird größer */
+    .up {
+        width: 32px;      /* größer */
+        height: 32px;     /* größer */
+        font-size: 20px;  /* besser sichtbar */
+        line-height: 32px;
+        top: 6px;
+    }
+
+    /* Mehr Platz rechts im Input */
+    .input-container {
+        padding-right: 45px;
+    }
+}
