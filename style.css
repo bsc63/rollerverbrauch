@@ -16,10 +16,45 @@ body {
     color: var(--text);
 }
 
+@media (min-width: 1025px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-wrapper {
+        width: 650px;
+    }
+}
+
+
 header {
     text-align: center;
     margin-bottom: 20px;
 }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 20px 0;
+    text-align: center;
+
+    background: rgba(245, 247, 250, 0.7); /* leicht transparent */
+    backdrop-filter: blur(12px);          /* Blur-Effekt */
+    -webkit-backdrop-filter: blur(12px);  /* Safari */
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* dezenter Schatten */
+    z-index: 1000;
+}
+
+/* Abstand unter dem Header */
+body {
+    padding-top: 120px;
+}
+
 
 h1 {
     margin: 0;
@@ -92,6 +127,13 @@ label {
     }
 }
 
+@media (min-width: 1025px) {
+    label {
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+}
 
 
 /* Mobil: Buttons größer, Input kompakter */
