@@ -86,6 +86,14 @@ label {
     touch-action: manipulation;
 }
 
+@media (min-width: 1025px) {
+    .stepper {
+        justify-content: center;
+    }
+}
+
+
+
 /* Mobil: Buttons größer, Input kompakter */
 @media (max-width: 480px) {
     .step-btn {
@@ -116,6 +124,18 @@ strong {
     font-size: 1.2rem;
     color: var(--green);
 }
+
+/* Standard-Spinner für alle Browser vollständig ausblenden */
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;   /* Chrome, Safari, Edge */
+    margin: 0;
+}
+
 
 /* ----------------------------------------------------------
    Diagramm
