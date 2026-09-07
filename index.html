@@ -26,25 +26,25 @@
 
             <label>Stromkosten pro kWh (€)</label>
             <div class="stepper">
-                 <button class="step-btn" onclick="decrementValue('cost-per-kwh')">−</button>
-                 <input type="number" id="cost-per-kwh" oninput="saveValuesAndCalculate()">
-                 <button class="step-btn" onclick="incrementValue('cost-per-kwh')">+</button>
+                <button class="step-btn" onclick="decrementValue('cost-per-kwh')">−</button>
+                <input type="number" id="cost-per-kwh" value="0.31" step="0.01" oninput="saveValuesAndCalculate()">
+                <button class="step-btn" onclick="incrementValue('cost-per-kwh')">+</button>
             </div>
 
 
             <label>gefahrene Strecke (km)</label>
             <div class="stepper">
-                 <button class="step-btn" onclick="decrementValue('distance')">−</button>
-                 <input type="number" id="distance" oninput="saveValuesAndCalculate()">
-                 <button class="step-btn" onclick="incrementValue('distance')">+</button>
+                <button class="step-btn" onclick="decrementValue('distance')">−</button>
+                <input type="number" id="distance" value="6.2" step="0.1" oninput="saveValuesAndCalculate()">
+                <button class="step-btn" onclick="incrementValue('distance')">+</button>
             </div>
 
 
             <label>Verbrauch (%)</label>
             <div class="stepper">
-                 <button class="step-btn" onclick="decrementValue('consumption')">−</button>
-                 <input type="number" id="consumption" oninput="saveValuesAndCalculate()">
-                 <button class="step-btn" onclick="incrementValue('consumption')">+</button>
+                <button class="step-btn" onclick="decrementValue('consumption')">−</button>
+                <input type="number" id="consumption" value="6.2" step="0.1" oninput="saveValuesAndCalculate()">
+                <button class="step-btn" onclick="incrementValue('consumption')">+</button>
             </div>
 
         </section>
