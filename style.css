@@ -59,9 +59,7 @@ input {
     font-size: 1.1rem;
 }
 
-/* ----------------------------------------------------------
-   MOBILE & TABLET: Standard-Pfeile ausblenden, grüne Buttons aktiv
------------------------------------------------------------ */
+/* Buttons (mobil & tablet) */
 @media (max-width: 1024px) {
 
     /* Standard-Pfeile ausblenden */
@@ -74,49 +72,44 @@ input {
         -moz-appearance: textfield;
     }
 
-    /* Buttons sichtbar */
-    .btn {
-        display: block;
-        position: absolute;
-        right: 6px;
-
-        width: 26px;
-        height: 26px;
-
-        padding: 0;
-        font-size: 16px;
-        line-height: 26px;
-        text-align: center;
-
-        background: var(--green);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-
-        touch-action: manipulation;
-    }
-
-    /* Positionen */
-    .up { top: 6px; }
-    .down { bottom: 6px; }
-
-    /* Mehr Platz rechts im Input */
     .input-container {
         padding-right: 40px;
     }
+
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        right: 6px;
+
+        width: 28px;
+        height: 28px;
+
+        background: var(--green);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+
+    .btn img {
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+    }
+
+    .up { top: 6px; }
+    .down { bottom: 6px; }
 }
 
-/* ----------------------------------------------------------
-   DESKTOP: Standard-Pfeile aktiv, grüne Buttons ausblenden
------------------------------------------------------------ */
+/* Desktop: Buttons ausblenden, Standard-Pfeile aktiv */
 @media (min-width: 1025px) {
-
     .btn {
         display: none !important;
     }
 
-    /* Standard-Pfeile aktivieren */
     input[type=number] {
         -moz-appearance: auto;
     }
@@ -126,6 +119,7 @@ input {
         margin: 0;
     }
 }
+
 
 /* ----------------------------------------------------------
    Diagramm
