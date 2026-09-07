@@ -8,12 +8,17 @@
     --shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* ----------------------------------------------------------
+   Grundlayout
+----------------------------------------------------------- */
+
 body {
     margin: 0;
     padding: 20px;
     background: var(--bg);
     font-family: system-ui, sans-serif;
     color: var(--text);
+    padding-top: 140px; /* Abstand für fixierten Header */
 }
 
 @media (min-width: 1025px) {
@@ -21,17 +26,14 @@ body {
         display: flex;
         justify-content: center;
     }
-
     .page-wrapper {
         width: 650px;
     }
 }
 
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+/* ----------------------------------------------------------
+   Header (fixiert, transparent, Blur)
+----------------------------------------------------------- */
 
 header {
     position: fixed;
@@ -39,33 +41,43 @@ header {
     left: 0;
     right: 0;
 
-    padding: 20px 0;
+    padding: 18px 0 14px 0;
     text-align: center;
 
-    background: rgba(245, 247, 250, 0.7); /* leicht transparent */
-    backdrop-filter: blur(12px);          /* Blur-Effekt */
-    -webkit-backdrop-filter: blur(12px);  /* Safari */
+    background: rgba(245, 247, 250, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* dezenter Schatten */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     z-index: 1000;
 }
 
-/* Abstand unter dem Header */
-body {
-    padding-top: 120px;
-}
-
-
-h1 {
+header h1 {
     margin: 0;
     color: var(--green);
-    font-size: 2rem;
+    font-size: 1.8rem;
+    white-space: nowrap;
 }
 
-.subtitle {
-    color: var(--subtext);
-    margin-top: 4px;
+header .subtitle {
+    margin: 4px 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    opacity: 0.9;
 }
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+    header .subtitle {
+        font-size: 0.85rem;
+    }
+}
+
+/* ----------------------------------------------------------
+   Cards & Labels
+----------------------------------------------------------- */
 
 .card {
     background: var(--card-bg);
@@ -81,8 +93,15 @@ label {
     font-weight: 600;
 }
 
+@media (min-width: 1025px) {
+    label {
+        text-align: center;
+        width: 100%;
+    }
+}
+
 /* ----------------------------------------------------------
-   MINI-STEPPER (final)
+   Mini-Stepper
 ----------------------------------------------------------- */
 
 .stepper {
@@ -93,7 +112,7 @@ label {
 }
 
 .stepper input {
-    width: 80px;              /* kompakt für Desktop */
+    width: 80px;
     text-align: center;
     padding: 10px;
     font-size: 1.1rem;
@@ -127,16 +146,6 @@ label {
     }
 }
 
-@media (min-width: 1025px) {
-    label {
-        text-align: center;
-        width: 100%;
-        display: block;
-    }
-}
-
-
-/* Mobil: Buttons größer, Input kompakter */
 @media (max-width: 480px) {
     .step-btn {
         width: 42px;
@@ -144,11 +153,24 @@ label {
         font-size: 28px;
         border-radius: 10px;
     }
-
     .stepper input {
         width: 70px;
         font-size: 1rem;
     }
+}
+
+/* ----------------------------------------------------------
+   Number-Input: Standard-Pfeile ausblenden
+----------------------------------------------------------- */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* ----------------------------------------------------------
@@ -166,18 +188,6 @@ strong {
     font-size: 1.2rem;
     color: var(--green);
 }
-
-/* Standard-Spinner für alle Browser vollständig ausblenden */
-input[type=number] {
-    -moz-appearance: textfield; /* Firefox */
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;   /* Chrome, Safari, Edge */
-    margin: 0;
-}
-
 
 /* ----------------------------------------------------------
    Diagramm
