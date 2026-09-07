@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbrauch Evchen</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Verbrauch Evchen</h1>
+        <p class="subtitle">72V • 52Ah • 3744Wh</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Fahrdaten</h2>
+
+            <label>Stromkosten pro kWh (€)</label>
+            <div class="input-container">
+                <input type="number" id="cost-per-kwh" step="0.01" value="0.31" oninput="saveValuesAndCalculate()">
+                <button class="btn up" onclick="incrementValue('cost-per-kwh')">▲</button>
+                <button class="btn down" onclick="decrementValue('cost-per-kwh')">▼</button>
+            </div>
+
+            <label>gefahrene Strecke (km)</label>
+            <div class="input-container">
+                <input type="number" id="distance" value="6.2" oninput="saveValuesAndCalculate()">
+                <button class="btn up" onclick="incrementValue('distance')">▲</button>
+                <button class="btn down" onclick="decrementValue('distance')">▼</button>
+            </div>
+
+            <label>Verbrauch (%)</label>
+            <div class="input-container">
+                <input type="number" id="consumption" oninput="saveValuesAndCalculate()">
+                <button class="btn up" onclick="incrementValue('consumption')">▲</button>
+                <button class="btn down" onclick="decrementValue('consumption')">▼</button>
+            </div>
+        </section>
+
+        <section class="card results">
+            <h2>Ergebnisse</h2>
+
+            <div class="result-row"><span>Reichweite (km)</span><strong id="range">0</strong></div>
+            <div class="result-row"><span>Wh pro km</span><strong id="consumption-per-km">0</strong></div>
+            <div class="result-row"><span>% pro km</span><strong id="percentage-consumption-per-km">0</strong></div>
+            <div class="result-row"><span>kWh pro 100 km</span><strong id="consumption-per-100km">0</strong></div>
+            <div class="result-row"><span>€ pro 100 km</span><strong id="cost-per-100km">0</strong></div>
+            <div class="result-row"><span>Fahrtkosten (€)</span><strong id="trip-cost">0</strong></div>
+            <div class="result-row"><span>€ pro Akkuladung</span><strong id="cost-per-charge">0</strong></div>
+        </section>
+
+        <!-- Verbrauchsdiagramm -->
+        <section class="card">
+            <h2>Verbrauchsdiagramm</h2>
+            <div class="chart-wrapper">
+                <canvas id="verbrauchChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js");
+        }
+    </script>
+</body>
+</html>
