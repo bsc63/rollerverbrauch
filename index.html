@@ -27,22 +27,23 @@
             <label>Stromkosten pro kWh (€)</label>
             <div class="input-container">
                 <input type="number" id="cost-per-kwh" step="0.01" value="0.31" oninput="saveValuesAndCalculate()">
-                <button class="btn up" onclick="incrementValue('cost-per-kwh')">▲</button>
-                <button class="btn down" onclick="decrementValue('cost-per-kwh')">▼</button>
+                <button class="btn up" onclick="incrementValue('cost-per-kwh')"><img src="icons/up.svg" alt=""></button>
+                <button class="btn down" onclick="decrementValue('cost-per-kwh')"><img src="icons/down.svg" alt=""></button>
             </div>
 
             <label>gefahrene Strecke (km)</label>
             <div class="input-container">
                 <input type="number" id="distance" value="6.2" oninput="saveValuesAndCalculate()">
-                <button class="btn up" onclick="incrementValue('distance')">▲</button>
-                <button class="btn down" onclick="decrementValue('distance')">▼</button>
+                <button class="btn up" onclick="incrementValue('distance')"><img src="icons/up.svg" alt=""></button>
+                <button class="btn down" onclick="decrementValue('distance')"><img src="icons/down.svg" alt=""></button>
             </div>
 
             <label>Verbrauch (%)</label>
             <div class="input-container">
                 <input type="number" id="consumption" oninput="saveValuesAndCalculate()">
-                <button class="btn up" onclick="incrementValue('consumption')">▲</button>
-                <button class="btn down" onclick="decrementValue('consumption')">▼</button>
+                <button class="btn up" onclick="incrementValue('consumption')"><img src="icons/up.svg" alt=""></button>
+                <button class="btn down" onclick="decrementValue('consumption')"><img src="icons/down.svg" alt=""></button>
+
             </div>
         </section>
 
