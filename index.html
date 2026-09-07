@@ -25,26 +25,28 @@
             <h2>Fahrdaten</h2>
 
             <label>Stromkosten pro kWh (€)</label>
-            <div class="input-container">
-                <input type="number" id="cost-per-kwh" step="0.01" value="0.31" oninput="saveValuesAndCalculate()">
-                <button class="btn up" onclick="incrementValue('cost-per-kwh')"><img src="icons/up.svg" alt=""></button>
-                <button class="btn down" onclick="decrementValue('cost-per-kwh')"><img src="icons/down.svg" alt=""></button>
+            <div class="stepper">
+                 <button class="step-btn" onclick="decrementValue('cost-per-kwh')">−</button>
+                 <input type="number" id="cost-per-kwh" oninput="saveValuesAndCalculate()">
+                 <button class="step-btn" onclick="incrementValue('cost-per-kwh')">+</button>
             </div>
+
 
             <label>gefahrene Strecke (km)</label>
-            <div class="input-container">
-                <input type="number" id="distance" value="6.2" oninput="saveValuesAndCalculate()">
-                <button class="btn up" onclick="incrementValue('distance')"><img src="icons/up.svg" alt=""></button>
-                <button class="btn down" onclick="decrementValue('distance')"><img src="icons/down.svg" alt=""></button>
+            <div class="stepper">
+                 <button class="step-btn" onclick="decrementValue('distance')">−</button>
+                 <input type="number" id="distance" oninput="saveValuesAndCalculate()">
+                 <button class="step-btn" onclick="incrementValue('distance')">+</button>
             </div>
+
 
             <label>Verbrauch (%)</label>
-            <div class="input-container">
-                <input type="number" id="consumption" oninput="saveValuesAndCalculate()">
-                <button class="btn up" onclick="incrementValue('consumption')"><img src="icons/up.svg" alt=""></button>
-                <button class="btn down" onclick="decrementValue('consumption')"><img src="icons/down.svg" alt=""></button>
-
+            <div class="stepper">
+                 <button class="step-btn" onclick="decrementValue('consumption')">−</button>
+                 <input type="number" id="consumption" oninput="saveValuesAndCalculate()">
+                 <button class="step-btn" onclick="incrementValue('consumption')">+</button>
             </div>
+
         </section>
 
         <section class="card results">
