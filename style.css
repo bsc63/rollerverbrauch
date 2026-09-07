@@ -59,135 +59,9 @@ input {
     font-size: 1.1rem;
 }
 
-.btn {
-    position: absolute;
-    right: 6px;
-    width: 22px;
-    height: 22px;
-    padding: 0;
-    font-size: 14px;
-    line-height: 22px;
-    text-align: center;
-
-    background: var(--green);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Abstand nach oben/unten */
-.up {
-    top: 6px;
-}
-
-.down {
-    bottom: 6px;
-}
-
-/* Mobil noch etwas kleiner */
-@media (max-width: 480px) {
-    .btn {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-        line-height: 20px;
-        right: 4px;
-    }
-
-    .up { top: 4px; }
-    .down { bottom: 4px; }
-}
-
-
-.results .result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-strong {
-    font-size: 1.2rem;
-    color: var(--green);
-}
-
-/* Diagramm mobil optimiert */
-.chart-wrapper {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    padding: 10px 0;
-}
-
-canvas {
-    width: 100% !important;
-    height: auto !important;
-}
-
-/* Touch-Optimierung für mobile Geräte */
-@media (max-width: 600px) {
-
-    .input-container {
-        padding-right: 40px; /* mehr Platz für Buttons */
-    }
-
-    .btn {
-        width: 28px;
-        height: 28px;
-        right: 6px;
-
-        font-size: 16px;
-        line-height: 28px;
-
-        border-radius: 6px;
-
-        /* Größere Touchfläche */
-        touch-action: manipulation;
-    }
-
-    .up {
-        top: 4px;
-    }
-
-    .down {
-        bottom: 4px;
-    }
-}
-
-/* Extra: Touch-Optimierung für Tablets */
-@media (min-width: 600px) and (max-width: 1024px) {
-
-    .btn {
-        width: 30px;
-        height: 30px;
-        font-size: 18px;
-        line-height: 30px;
-        right: 8px;
-    }
-
-    .up { top: 6px; }
-    .down { bottom: 6px; }
-}
-
-/* --- DESKTOP: Grüne Buttons ausblenden, Standard-Pfeile anzeigen --- */
-@media (min-width: 1025px) {
-    .btn {
-        display: none !important;
-    }
-
-    /* Standard-Browser-Pfeile wieder aktivieren */
-    input[type=number] {
-        -moz-appearance: auto;
-    }
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: auto;
-        margin: 0;
-    }
-}
-
-/* --- MOBIL: Standard-Pfeile ausblenden, grüne Buttons aktivieren --- */
+/* ----------------------------------------------------------
+   MOBILE & TABLET: Standard-Pfeile ausblenden, grüne Buttons aktiv
+----------------------------------------------------------- */
 @media (max-width: 1024px) {
 
     /* Standard-Pfeile ausblenden */
@@ -205,34 +79,77 @@ canvas {
         display: block;
         position: absolute;
         right: 6px;
+
+        width: 26px;
+        height: 26px;
+
+        padding: 0;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+
         background: var(--green);
         color: white;
         border: none;
-        cursor: pointer;
         border-radius: 6px;
+        cursor: pointer;
+
         touch-action: manipulation;
     }
 
-    /* ▼ bleibt wie bisher */
-    .down {
-        width: 26px;
-        height: 26px;
-        font-size: 16px;
-        line-height: 26px;
-        bottom: 6px;
-    }
-
-    /* ▲ wird größer */
-    .up {
-        width: 32px;      /* größer */
-        height: 32px;     /* größer */
-        font-size: 20px;  /* besser sichtbar */
-        line-height: 32px;
-        top: 6px;
-    }
+    /* Positionen */
+    .up { top: 6px; }
+    .down { bottom: 6px; }
 
     /* Mehr Platz rechts im Input */
     .input-container {
-        padding-right: 45px;
+        padding-right: 40px;
     }
+}
+
+/* ----------------------------------------------------------
+   DESKTOP: Standard-Pfeile aktiv, grüne Buttons ausblenden
+----------------------------------------------------------- */
+@media (min-width: 1025px) {
+
+    .btn {
+        display: none !important;
+    }
+
+    /* Standard-Pfeile aktivieren */
+    input[type=number] {
+        -moz-appearance: auto;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: auto;
+        margin: 0;
+    }
+}
+
+/* ----------------------------------------------------------
+   Diagramm
+----------------------------------------------------------- */
+.results .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+strong {
+    font-size: 1.2rem;
+    color: var(--green);
+}
+
+.chart-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
 }
