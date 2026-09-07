@@ -61,17 +61,44 @@ input {
 
 .btn {
     position: absolute;
-    right: 10px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+
     background: var(--green);
     color: white;
     border: none;
-    padding: 4px 8px;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.up { top: 6px; }
-.down { bottom: 6px; }
+/* Abstand nach oben/unten */
+.up {
+    top: 6px;
+}
+
+.down {
+    bottom: 6px;
+}
+
+/* Mobil noch etwas kleiner */
+@media (max-width: 480px) {
+    .btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        line-height: 20px;
+        right: 4px;
+    }
+
+    .up { top: 4px; }
+    .down { bottom: 4px; }
+}
+
 
 .results .result-row {
     display: flex;
@@ -96,4 +123,49 @@ strong {
 canvas {
     width: 100% !important;
     height: auto !important;
+}
+
+/* Touch-Optimierung für mobile Geräte */
+@media (max-width: 600px) {
+
+    .input-container {
+        padding-right: 40px; /* mehr Platz für Buttons */
+    }
+
+    .btn {
+        width: 28px;
+        height: 28px;
+        right: 6px;
+
+        font-size: 16px;
+        line-height: 28px;
+
+        border-radius: 6px;
+
+        /* Größere Touchfläche */
+        touch-action: manipulation;
+    }
+
+    .up {
+        top: 4px;
+    }
+
+    .down {
+        bottom: 4px;
+    }
+}
+
+/* Extra: Touch-Optimierung für Tablets */
+@media (min-width: 600px) and (max-width: 1024px) {
+
+    .btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        line-height: 30px;
+        right: 8px;
+    }
+
+    .up { top: 6px; }
+    .down { bottom: 6px; }
 }
